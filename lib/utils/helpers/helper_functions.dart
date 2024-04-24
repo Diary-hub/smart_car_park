@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:kumics/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
 
 class KHelperFunctions {
   static Color? getColor(String value) {
@@ -56,20 +56,15 @@ class KHelperFunctions {
             alignment: Alignment.center,
             actionsAlignment: MainAxisAlignment.center,
             title: Text(title),
-            titleTextStyle: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: KColors.primary),
+            titleTextStyle:
+                Theme.of(context).textTheme.headlineSmall!.copyWith(color: KColors.primary),
             content: Text(message),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),
                 child: Text(
                   'تەواو',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: KColors.primary),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(color: KColors.primary),
                 ),
               ),
             ],
@@ -110,8 +105,7 @@ class KHelperFunctions {
     return MediaQuery.of(Get.context!).size.width;
   }
 
-  static String getFormattedDate(DateTime date,
-      {String format = 'dd MMM yyyy'}) {
+  static String getFormattedDate(DateTime date, {String format = 'dd MMM yyyy'}) {
     return intl.DateFormat(format).format(date);
   }
 
@@ -122,8 +116,8 @@ class KHelperFunctions {
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize) {
     final wrappedList = <Widget>[];
     for (var i = 0; i < widgets.length; i += rowSize) {
-      final rowChildren = widgets.sublist(
-          i, i + rowSize > widgets.length ? widgets.length : i + rowSize);
+      final rowChildren =
+          widgets.sublist(i, i + rowSize > widgets.length ? widgets.length : i + rowSize);
       wrappedList.add(Row(children: rowChildren));
     }
     return wrappedList;

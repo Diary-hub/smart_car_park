@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:kumics/common/widgets/loader/loader.dart';
-import 'package:kumics/utils/constants/colors.dart';
-import 'package:kumics/utils/device/device_utility.dart';
+import 'package:smart_car_park/common/widgets/loader/loader.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/device/device_utility.dart';
 
 class KFullScreenLoader {
   static void openLoadingDialog(String text, String animation) {

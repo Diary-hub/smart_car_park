@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kumics/utils/constants/colors.dart';
-import 'package:kumics/utils/constants/images.dart';
-import 'package:kumics/utils/constants/texts.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/constants/images.dart';
+import 'package:smart_car_park/utils/constants/texts.dart';
 
 class CustomDrawerHeaderPrimary extends StatelessWidget {
   const CustomDrawerHeaderPrimary({
@@ -21,10 +21,7 @@ class CustomDrawerHeaderPrimary extends StatelessWidget {
         ),
         Text(
           "کومیکس©",
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: KColors.primary),
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: KColors.primary),
         ),
         Text(
           KTexts.aboutApp,

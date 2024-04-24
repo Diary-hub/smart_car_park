@@ -1,12 +1,11 @@
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
-import 'package:kumics/utils/constants/sizes.dart';
-import 'package:kumics/utils/constants/colors.dart';
-import 'package:kumics/utils/constants/images.dart';
-import 'package:kumics/common/widgets/simple_button.dart';
-import 'package:kumics/common/widgets/custom_drawer_header_primary.dart';
-import 'package:kumics/data/repositories/authentication/authentication_repository.dart';
-import 'package:kumics/featuers/personalization/screens/settings/widgets/custom_menu_tile.dart';
+import 'package:smart_car_park/common/widgets/custom_menu_tile.dart';
+import 'package:smart_car_park/utils/constants/sizes.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/constants/images.dart';
+import 'package:smart_car_park/common/widgets/simple_button.dart';
+import 'package:smart_car_park/common/widgets/custom_drawer_header_primary.dart';
 
 class CustomDrawerPrimary extends StatelessWidget {
   const CustomDrawerPrimary({
@@ -70,7 +69,7 @@ class CustomDrawerPrimary extends StatelessWidget {
                   backgroundColor: KColors.error,
                   width: 0.4,
                   height: 0.06,
-                  onPressed: () => AuthenticationRepository.instance.logout(),
+                  onPressed: () => {},
                   text: "چوونەدەرەوە",
                   style: Theme.of(context).textTheme.headlineSmall),
             ],

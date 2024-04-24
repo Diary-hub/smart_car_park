@@ -25,7 +25,7 @@ test/
 web/
 windows/
 analysis_options.yaml
-kumics.iml
+smartcarpark.iml
 pubspec.lock
 lib\main.dart
 # The .vscode folder contains launch configuration and tasks you configure in

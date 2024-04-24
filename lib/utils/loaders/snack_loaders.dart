@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:kumics/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
 
 class KLoaders {
   static successSnackBar({required title, message = '', duration = 3}) {

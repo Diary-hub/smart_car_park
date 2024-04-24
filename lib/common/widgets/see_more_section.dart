@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kumics/utils/constants/colors.dart';
-import 'package:kumics/utils/constants/sizes.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/constants/sizes.dart';
 
 class SeeMoreSection extends StatelessWidget {
   const SeeMoreSection({
@@ -36,10 +36,7 @@ class SeeMoreSection extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 subTitle,
                 style: subTitleStyle ??
-                    Theme.of(context)
-                        .textTheme
-                        .titleSmall!
-                        .copyWith(color: Colors.grey),
+                    Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.grey),
               ),
               showButton
                   ? Expanded(

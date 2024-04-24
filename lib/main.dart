@@ -1,5 +1,5 @@
+import 'package:smart_car_park/app.dart';
 import 'package:flutter/material.dart';
-import 'package:kumics/app.dart';
 
 Future<void> main() async {
   // Widget Bindings

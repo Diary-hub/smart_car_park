@@ -1,8 +1,8 @@
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
-import 'package:kumics/utils/constants/sizes.dart';
-import 'package:kumics/utils/device/device_utility.dart';
-import 'package:kumics/common/widgets/simple_button.dart';
+import 'package:smart_car_park/utils/constants/sizes.dart';
+import 'package:smart_car_park/utils/device/device_utility.dart';
+import 'package:smart_car_park/common/widgets/simple_button.dart';
 
 class KAnimationLoaderWidget extends StatelessWidget {
   const KAnimationLoaderWidget(

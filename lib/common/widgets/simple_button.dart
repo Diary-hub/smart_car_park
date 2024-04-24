@@ -1,9 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:kumics/utils/constants/colors.dart';
-import 'package:kumics/utils/device/device_utility.dart';
-import 'package:kumics/utils/helpers/helper_functions.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/device/device_utility.dart';
+import 'package:smart_car_park/utils/helpers/helper_functions.dart';
 
 class SimpleButton extends StatelessWidget {
   const SimpleButton({
@@ -42,10 +42,7 @@ class SimpleButton extends StatelessWidget {
         child: Text(
           text,
           style: style ??
-              const TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w100),
+              const TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.w100),
         ),
       ),
     );

@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:kumics/bindings/general_bindings.dart';
-import 'package:kumics/splash.dart';
-import 'package:kumics/utils/device/device_utility.dart';
-import 'package:kumics/utils/theme/theme.dart';
+import 'package:smart_car_park/bindings/general_bindings.dart';
+
+import 'package:smart_car_park/utils/device/device_utility.dart';
+import 'package:smart_car_park/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -16,6 +16,6 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: KAppTheme.darkTheme,
         darkTheme: KAppTheme.darkTheme,
-        home: const SplashScreen());
+        home: const Scaffold());
   }
 }

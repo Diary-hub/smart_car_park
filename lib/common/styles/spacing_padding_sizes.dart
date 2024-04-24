@@ -1,5 +1,5 @@
 import 'package:flutter/painting.dart';
-import 'package:kumics/utils/constants/sizes.dart';
+import 'package:smart_car_park/utils/constants/sizes.dart';
 
 class KSpacingPaddingSizes {
   static const EdgeInsetsGeometry paddingWithAppBarHeight = EdgeInsets.only(

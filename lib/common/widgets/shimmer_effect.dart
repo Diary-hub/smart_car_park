@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kumics/utils/constants/colors.dart';
+import 'package:smart_car_park/utils/constants/colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerEffect extends StatelessWidget {
