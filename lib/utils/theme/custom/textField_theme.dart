@@ -35,7 +35,7 @@ class KTextFieldTheme {
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(22),
-      borderSide: BorderSide(width: 1, color: Colors.orange.withOpacity(0.2)),
+      borderSide: BorderSide(width: 1, color: Colors.black.withOpacity(0.2)),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(22),
@@ -43,7 +43,7 @@ class KTextFieldTheme {
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(22),
-      borderSide: const BorderSide(width: 2, color: Colors.orange),
+      borderSide: const BorderSide(width: 2, color: Colors.black),
     ),
   );
 }

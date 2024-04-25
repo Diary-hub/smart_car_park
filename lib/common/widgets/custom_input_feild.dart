@@ -38,7 +38,7 @@ class CustomInputField extends StatelessWidget {
       decoration: InputDecoration(
           floatingLabelStyle: const TextStyle().copyWith(
             fontSize: 22,
-            color: Colors.orange.withOpacity(0.8),
+            color: Colors.black.withOpacity(0.8),
           ),
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,

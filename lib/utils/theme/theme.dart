@@ -16,7 +16,7 @@ class KAppTheme {
     fontFamily: "Rabar",
     brightness: Brightness.dark,
     primaryColor: Colors.white,
-    scaffoldBackgroundColor: const Color(0xff17181c),
+    scaffoldBackgroundColor: Colors.white,
     textTheme: KTextTheme.darkTheme,
     chipTheme: KChipTheme.darkTheme,
     appBarTheme: KAppBarTheme.darkTheme,

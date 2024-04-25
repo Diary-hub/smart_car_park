@@ -1,21 +1,21 @@
 class KValidator {
   static String? validateField(String? fieldName, String? value) {
     if (value == null || value.isEmpty) {
-      return '$fieldName داواکراوە';
+      return '$fieldName Requierd';
     }
     return null;
   }
 
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'ئیمەیڵ داواکراوە';
+      return 'Email Requierd';
     }
 
     // Regular expression for email validation
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
     if (!emailRegExp.hasMatch(value)) {
-      return 'ئیمەیڵەکە درووست نیە';
+      return 'Email Invalid';
     }
 
     return null;
@@ -23,27 +23,27 @@ class KValidator {
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'وشەی نهێنی داواکراوە';
+      return 'Password Requierd';
     }
 
     // Check for minimum password length
     if (value.length < 6) {
-      return 'دەبێت لە ٦ پیت زیاتر بێت';
+      return 'More Than 6 Charecters';
     }
 
     // Check for uppercase letters
     if (!value.contains(RegExp(r'[A-Z]'))) {
-      return 'دەبێت پیتێکی کەپیتەڵ تێدا بێت';
+      return 'At Least Pne Capital';
     }
 
     // Check for numbers
     if (!value.contains(RegExp(r'[0-9]'))) {
-      return 'دەبێت ژمارەیەکی تێدا بێت';
+      return 'At Leaast One Number';
     }
 
     // Check for special characters
     if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return 'دەبێت هێمایەکی تایبەتی تێدا بێت';
+      return 'At Least a Speacel Charecter';
     }
 
     return null;
@@ -51,14 +51,14 @@ class KValidator {
 
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return 'ژمارەی مۆبایل داواکراوە';
+      return 'Phone Requierd';
     }
 
     // Regular expression for phone number validation (assuming a 10-digit US phone number format)
     final phoneRegExp = RegExp(r'^\d{11}$');
 
     if (!phoneRegExp.hasMatch(value)) {
-      return 'دەبێت  ١١ ژمارە بێت';
+      return 'Must Be 11 Digits';
     }
 
     return null;
