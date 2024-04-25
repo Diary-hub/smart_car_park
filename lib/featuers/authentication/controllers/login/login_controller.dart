@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:smart_car_park/data/repositories/authentication/authentication_repository.dart';
-import 'package:smart_car_park/utils/constants/images.dart';
 import 'package:smart_car_park/utils/helpers/network.dart';
-import 'package:smart_car_park/utils/loaders/full_screen_loader.dart';
+import 'package:smart_car_park/utils/constants/images.dart';
 import 'package:smart_car_park/utils/loaders/snack_loaders.dart';
+import 'package:smart_car_park/utils/loaders/full_screen_loader.dart';
+import 'package:smart_car_park/data/repositories/authentication/authentication_repository.dart';
 
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();

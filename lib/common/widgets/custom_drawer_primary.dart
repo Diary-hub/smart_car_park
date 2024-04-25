@@ -1,11 +1,10 @@
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_car_park/common/widgets/custom_menu_tile.dart';
-import 'package:smart_car_park/utils/constants/sizes.dart';
 import 'package:smart_car_park/utils/constants/colors.dart';
-import 'package:smart_car_park/utils/constants/images.dart';
 import 'package:smart_car_park/common/widgets/simple_button.dart';
+import 'package:smart_car_park/common/widgets/custom_menu_tile.dart';
 import 'package:smart_car_park/common/widgets/custom_drawer_header_primary.dart';
+import 'package:smart_car_park/data/repositories/authentication/authentication_repository.dart';
 
 class CustomDrawerPrimary extends StatelessWidget {
   const CustomDrawerPrimary({
@@ -19,7 +18,7 @@ class CustomDrawerPrimary extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       shape: const RoundedRectangleBorder(),
-      backgroundColor: KColors.backgroundColorPrimary,
+      backgroundColor: KColors.white,
       child: ListView(
         children: [
           SizedBox(
@@ -28,36 +27,54 @@ class CustomDrawerPrimary extends StatelessWidget {
           ),
           ProfileMenuTile(
             onTap: () {},
-            icon: Iconsax.document_download5,
-            title: "هەڵگیراوەکان",
-            subTitle: "بینینی کۆمیکە داگیراوەکان",
+            icon: Iconsax.card5,
+            title: "Payment Method",
+            subTitle: "Check your payments",
             trailing: const Icon(
               Icons.arrow_forward_ios,
             ),
           ),
           ProfileMenuTile(
             onTap: () {},
-            icon: Icons.star,
-            title: "هەڵسەنگاندن",
-            subTitle: "ئەپەکەمان هەڵبسەنگێنە",
+            icon: Icons.history,
+            title: "Parking History",
+            subTitle: "Check your history",
             trailing: const Icon(
               Icons.arrow_forward_ios,
             ),
           ),
           ProfileMenuTile(
             onTap: () {},
-            icon: Icons.web,
-            title: "پێگەکەمان",
-            subTitle: "پێگەکەی فەڕمی کومیکس",
+            icon: Icons.check_circle,
+            title: "Promotion Code",
+            subTitle: "Get CashBacks",
             trailing: const Icon(
               Icons.arrow_forward_ios,
             ),
           ),
           ProfileMenuTile(
             onTap: () {},
-            icon: Icons.share,
-            title: "بڵاوکردنەوە",
-            subTitle: "هاوڕێکانت بێبەش مەکە",
+            icon: Icons.info,
+            title: "How it Works",
+            subTitle: "Use Cases",
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+            ),
+          ),
+          ProfileMenuTile(
+            onTap: () {},
+            icon: Icons.help,
+            title: "Support",
+            subTitle: "Get help",
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+            ),
+          ),
+          ProfileMenuTile(
+            onTap: () {},
+            icon: Icons.settings,
+            title: "Settings",
+            subTitle: "Go to Settings",
             trailing: const Icon(
               Icons.arrow_forward_ios,
             ),
@@ -69,62 +86,11 @@ class CustomDrawerPrimary extends StatelessWidget {
                   backgroundColor: KColors.error,
                   width: 0.4,
                   height: 0.06,
-                  onPressed: () => {},
-                  text: "چوونەدەرەوە",
+                  onPressed: () => AuthenticationRepository.instance.logout(),
+                  text: "Logout",
                   style: Theme.of(context).textTheme.headlineSmall),
             ],
           ),
-          SizedBox(height: sH * 0.02),
-          const Divider(),
-          const SizedBox(height: KSizes.defaultSpace - 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              InkWell(
-                borderRadius: BorderRadius.circular(16),
-                radius: 15,
-                onTap: () {},
-                child: Column(
-                  children: [
-                    const CircleAvatar(
-                      backgroundImage: AssetImage(KImages.igLogo),
-                    ),
-                    SizedBox(height: sH * 0.01),
-                    const Text("Instagram")
-                  ],
-                ),
-              ),
-              InkWell(
-                borderRadius: BorderRadius.circular(16),
-                radius: 15,
-                onTap: () {},
-                child: Column(
-                  children: [
-                    const CircleAvatar(
-                      backgroundImage: AssetImage(KImages.fbLogo),
-                    ),
-                    SizedBox(height: sH * 0.01),
-                    const Text("Facebook")
-                  ],
-                ),
-              ),
-              InkWell(
-                borderRadius: BorderRadius.circular(16),
-                radius: 15,
-                onTap: () {},
-                child: Column(
-                  children: [
-                    const CircleAvatar(
-                      backgroundImage: AssetImage(KImages.xLogo),
-                    ),
-                    SizedBox(height: sH * 0.01),
-                    const Text("X")
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: KSizes.defaultSpace),
         ],
       ),
     );

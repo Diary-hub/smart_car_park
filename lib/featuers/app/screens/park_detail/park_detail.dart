@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:smart_car_park/common/widgets/simple_button.dart';
-import 'package:smart_car_park/featuers/app/screens/park_detail/widgets/slots.dart';
 import 'package:smart_car_park/utils/device/device_utility.dart';
+import 'package:smart_car_park/common/widgets/simple_button.dart';
+import 'package:smart_car_park/common/widgets/custom_drawer_primary.dart';
+import 'package:smart_car_park/featuers/app/screens/park_detail/widgets/slots.dart';
 
 class ParkDetailsScreen extends StatelessWidget {
   const ParkDetailsScreen({super.key});
@@ -14,9 +15,10 @@ class ParkDetailsScreen extends StatelessWidget {
     final sH = KDeviceUtils.getScreenHeight();
 
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+      drawer: CustomDrawerPrimary(
+        sH: sH,
       ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

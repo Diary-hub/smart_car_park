@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_car_park/utils/constants/colors.dart';
-import 'package:smart_car_park/utils/constants/images.dart';
-import 'package:smart_car_park/utils/constants/texts.dart';
 
 class CustomDrawerHeaderPrimary extends StatelessWidget {
   const CustomDrawerHeaderPrimary({
@@ -10,24 +7,18 @@ class CustomDrawerHeaderPrimary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DrawerHeader(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Image(
-          fit: BoxFit.fill,
-          image: AssetImage(KImages.appLogo),
-          width: 120,
+    return const UserAccountsDrawerHeader(
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      currentAccountPicture: CircleAvatar(
+        backgroundImage: NetworkImage(
+          "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8g14wE74YAOQsCVjWVwd_CuBlCa6-pK2ft1sLTngMgQWaHKOCKaoSS-cmlrmEEmiCRsM7ZhZ2-t98IqnJUAIB4dDMe_loFHmc9b7brxHaWJ93nwSglDQP-UF16ISzVQsfu9MAgQ3Bdvs/s1600/User_man_male_profile_account_person_people.pngs",
         ),
-        Text(
-          "کومیکس©",
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: KColors.primary),
-        ),
-        Text(
-          KTexts.aboutApp,
-          style: Theme.of(context).textTheme.bodySmall,
-        )
-      ],
-    ));
+      ),
+      currentAccountPictureSize: Size.fromRadius(80),
+      accountName: Text("Diary Tariq Ibrahem"),
+      accountEmail: Text("iinoob4ever@gmail.com"),
+    );
   }
 }

@@ -1,9 +1,10 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:smart_car_park/featuers/app/screens/home/home_screen.dart';
 import 'package:smart_car_park/featuers/app/screens/park_detail/park_detail.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:smart_car_park/featuers/personalization/screens/settings/settings.dart';
 
 class NavigationRouterScreen extends StatelessWidget {
   const NavigationRouterScreen({super.key});
@@ -119,6 +120,6 @@ class NavigationRouterController extends GetxController {
     const HomeScreen(),
     const ParkDetailsScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const SettingScreen(),
   ];
 }
