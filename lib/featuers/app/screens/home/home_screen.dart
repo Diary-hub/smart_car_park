@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sW = KDeviceUtils.getScreenWidht(context);
+    // final sW = KDeviceUtils.getScreenWidht(context);
     final sH = KDeviceUtils.getScreenHeight();
     return Scaffold(
       drawer: CustomDrawerPrimary(

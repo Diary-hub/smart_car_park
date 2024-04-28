@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:smart_car_park/featuers/app/controllers/slots_controller.dart';
 import 'package:smart_car_park/utils/device/device_utility.dart';
 import 'package:smart_car_park/common/widgets/simple_button.dart';
 import 'package:smart_car_park/common/widgets/custom_drawer_primary.dart';
@@ -11,8 +14,9 @@ class ParkDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final autoSizeGroup = AutoSizeGroup();
-    final sW = KDeviceUtils.getScreenWidht(context);
+    // final sW = KDeviceUtils.getScreenWidht(context);
     final sH = KDeviceUtils.getScreenHeight();
+    final SlotsController slotsController = Get.put(SlotsController());
 
     return Scaffold(
       drawer: CustomDrawerPrimary(
@@ -104,10 +108,12 @@ class ParkDetailsScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            const Slots(
-                              firstFree: true,
-                              secondFree: false,
-                              thirdtFree: true,
+                            Obx(
+                              () => Slots(
+                                firstFree: slotsController.firstFree.value,
+                                secondFree: slotsController.secondFree.value,
+                                thirdtFree: slotsController.thirdtFree.value,
+                              ),
                             ),
                             SizedBox(height: sH * 0.02),
                             const Slots(
