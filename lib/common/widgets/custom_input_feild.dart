@@ -17,7 +17,7 @@ class CustomInputField extends StatelessWidget {
   });
 
   final String labelText;
-  final Widget prefixIcon;
+  final Widget? prefixIcon;
   final bool obscureText;
   final bool expands;
   Widget? suffixIcon;

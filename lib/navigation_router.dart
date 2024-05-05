@@ -2,8 +2,9 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:smart_car_park/featuers/app/screens/home/home_screen.dart';
-import 'package:smart_car_park/featuers/app/screens/park_detail/park_detail.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:smart_car_park/featuers/app/screens/payment/payment_screen.dart';
+import 'package:smart_car_park/featuers/personalization/screens/profile/profile_screen.dart';
 import 'package:smart_car_park/featuers/personalization/screens/settings/settings.dart';
 
 class NavigationRouterScreen extends StatelessWidget {
@@ -39,24 +40,15 @@ class NavigationRouterScreen extends StatelessWidget {
         ),
         onPressed: () {
           showModalBottomSheet(
-              constraints: const BoxConstraints(maxHeight: 120),
+              constraints: const BoxConstraints(maxHeight: 220),
+              shape: const RoundedRectangleBorder(),
               context: context,
               builder: (context) {
                 return Column(children: [
                   ListTile(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shape: const RoundedRectangleBorder(),
                     onTap: () {},
-                    title: const Text("AI Scanner"),
-                  ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                    onTap: () {
-                      Navigator.pop(context);
-
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) => const Scaffold()));
-                    },
-                    title: const Text("QR Code Scanner"),
+                    title: const Text("Recomendation System"),
                   ),
                 ]);
               });
@@ -112,14 +104,15 @@ class NavigationRouterScreen extends StatelessWidget {
 }
 
 class NavigationRouterController extends GetxController {
+  static NavigationRouterController get instance => Get.find();
   final _selectedIndex = 0.obs;
 
   getIndex() => _selectedIndex.value;
   setIndex(index) => _selectedIndex.value = index;
   final screens = [
     const HomeScreen(),
-    const ParkDetailsScreen(),
-    const HomeScreen(),
+    const PaymentScreen(),
+    const ProfileScreen(),
     const SettingScreen(),
   ];
 }

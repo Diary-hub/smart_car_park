@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:smart_car_park/featuers/personalization/controllers/user_controller.dart';
 
 class CustomDrawerHeaderPrimary extends StatelessWidget {
   const CustomDrawerHeaderPrimary({
@@ -7,18 +9,21 @@ class CustomDrawerHeaderPrimary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const UserAccountsDrawerHeader(
-      decoration: BoxDecoration(
-        color: Colors.white,
-      ),
-      currentAccountPicture: CircleAvatar(
-        backgroundImage: NetworkImage(
-          "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8g14wE74YAOQsCVjWVwd_CuBlCa6-pK2ft1sLTngMgQWaHKOCKaoSS-cmlrmEEmiCRsM7ZhZ2-t98IqnJUAIB4dDMe_loFHmc9b7brxHaWJ93nwSglDQP-UF16ISzVQsfu9MAgQ3Bdvs/s1600/User_man_male_profile_account_person_people.pngs",
+    final controller = UserController.instance;
+    return Obx(
+      () => UserAccountsDrawerHeader(
+        decoration: const BoxDecoration(
+          color: Colors.white,
         ),
+        currentAccountPicture: CircleAvatar(
+          backgroundImage: NetworkImage(
+            controller.user.value.profilePicture,
+          ),
+        ),
+        currentAccountPictureSize: const Size.fromRadius(80),
+        accountName: Text(controller.user.value.getFulltName),
+        accountEmail: Text(controller.user.value.email),
       ),
-      currentAccountPictureSize: Size.fromRadius(80),
-      accountName: Text("Diary Tariq Ibrahem"),
-      accountEmail: Text("iinoob4ever@gmail.com"),
     );
   }
 }

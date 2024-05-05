@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:smart_car_park/featuers/app/models/card_model.dart';
 import 'package:smart_car_park/utils/exception/format_exceptions.dart';
 import 'package:smart_car_park/utils/exception/platform_exceptions.dart';
 import 'package:smart_car_park/utils/exception/firebase_exceptions.dart';
@@ -27,6 +28,71 @@ class UserRepository extends GetxController {
       throw KPlatformException(e.code).message;
     } catch (e) {
       throw "هەڵەیەک ڕویدا تکایە دوبارە هەوڵ بدەرەوە";
+    }
+  }
+
+  // Save New User Credit Card
+  Future<void> saveCreditCard(CardModel card) async {
+    try {
+      await _db
+          .collection("Users")
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .collection("CreditCards")
+          .add(card.toJson());
+    } on FirebaseException catch (e) {
+      throw KFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const KFormatException();
+    } on PlatformException catch (e) {
+      throw KPlatformException(e.code).message;
+    } catch (e) {
+      throw "There Was A Problem Try Again";
+    }
+  }
+
+  // Delete User Credit Card
+  Future<void> deleteCreditCard(String? id) async {
+    try {
+      await _db
+          .collection("Users")
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .collection("CreditCards")
+          .doc(id)
+          .delete();
+    } on FirebaseException catch (e) {
+      throw KFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const KFormatException();
+    } on PlatformException catch (e) {
+      throw KPlatformException(e.code).message;
+    } catch (e) {
+      throw "There Was A Problem Try Again";
+    }
+  }
+
+// Get User Credit Cards
+  Future<List<CardModel>> getAllCards() async {
+    try {
+      final snapshot = await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .collection('CreditCards')
+          .get();
+
+      // Convert query snapshot to a list of credit card data
+      final creditCards = snapshot.docs.map((document) {
+        return CardModel.fromSnapshot(document);
+      }).toList();
+
+      return creditCards;
+    } on FirebaseException catch (e) {
+      throw KFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const KFormatException();
+    } on PlatformException catch (e) {
+      throw KPlatformException(e.code).message;
+    } catch (e) {
+      throw "Try Again There Was a Problem !";
     }
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_car_park/common/widgets/custom_drawer_primary.dart';
 import 'package:smart_car_park/featuers/personalization/screens/settings/widgets/pile.dart';
 import 'package:smart_car_park/utils/device/device_utility.dart';
+import 'package:smart_car_park/utils/helpers/helper_functions.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -40,12 +41,17 @@ class SettingScreen extends StatelessWidget {
               children: [
                 Pile(
                   iconData: Icons.question_mark,
-                  onTap: () {},
-                  title: "Terms of use",
+                  onTap: () {
+                    KHelperFunctions.showAlert("TERMS OF USE", 'This is the Terms of Use ');
+                  },
+                  title: "Terms of Use",
                 ),
                 Pile(
                   iconData: Icons.shield,
-                  onTap: () {},
+                  onTap: () {
+                    KHelperFunctions.showAlert(
+                        "PRIVACY AND POLICY", 'This is the Privacy and Policy ');
+                  },
                   title: "Privacy and Policy",
                 ),
               ],

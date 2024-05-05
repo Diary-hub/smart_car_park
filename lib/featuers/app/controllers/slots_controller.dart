@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 

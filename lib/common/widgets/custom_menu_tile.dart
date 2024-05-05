@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_car_park/utils/constants/colors.dart';
 
 class ProfileMenuTile extends StatelessWidget {
   const ProfileMenuTile({
@@ -32,7 +31,7 @@ class ProfileMenuTile extends StatelessWidget {
             Text(subTitle, style: Theme.of(context).textTheme.labelLarge!.copyWith(fontSize: 14)),
         leading: Icon(
           icon,
-          color: KColors.primary,
+          color: Colors.deepPurpleAccent,
         ),
         trailing: trailing,
       ),

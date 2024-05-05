@@ -1,5 +1,6 @@
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_car_park/data/repositories/authentication/authentication_repository.dart';
 import 'package:smart_car_park/utils/constants/sizes.dart';
 import 'package:smart_car_park/utils/constants/colors.dart';
 import 'package:smart_car_park/common/widgets/simple_button.dart';
@@ -40,9 +41,7 @@ class SimpleScreen extends StatelessWidget {
                 const SizedBox(height: KSizes.spaceBetweenSections),
                 SimpleButton(
                   backgroundColor: KColors.primary,
-                  onPressed: () => {
-                    //AuthenticationRepository.instance.screenRedirect()
-                  },
+                  onPressed: () => {AuthenticationRepository.instance.screenRedirect()},
                   text: buttonText,
                 ),
               ],

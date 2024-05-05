@@ -1,5 +1,6 @@
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_car_park/navigation_router.dart';
 import 'package:smart_car_park/utils/constants/colors.dart';
 import 'package:smart_car_park/common/widgets/simple_button.dart';
 import 'package:smart_car_park/common/widgets/custom_menu_tile.dart';
@@ -71,7 +72,10 @@ class CustomDrawerPrimary extends StatelessWidget {
             ),
           ),
           ProfileMenuTile(
-            onTap: () {},
+            onTap: () {
+              final controller = NavigationRouterController.instance;
+              controller.setIndex(3);
+            },
             icon: Icons.settings,
             title: "Settings",
             subTitle: "Go to Settings",
@@ -91,6 +95,7 @@ class CustomDrawerPrimary extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineSmall),
             ],
           ),
+          SizedBox(height: sH * 0.06),
         ],
       ),
     );

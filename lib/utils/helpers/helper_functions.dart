@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:smart_car_park/utils/constants/colors.dart';
 
 class KHelperFunctions {
   static Color? getColor(String value) {
@@ -51,20 +50,26 @@ class KHelperFunctions {
       context: Get.context!,
       builder: (BuildContext context) {
         return Directionality(
-          textDirection: TextDirection.rtl,
+          textDirection: TextDirection.ltr,
           child: AlertDialog(
             alignment: Alignment.center,
             actionsAlignment: MainAxisAlignment.center,
             title: Text(title),
             titleTextStyle:
-                Theme.of(context).textTheme.headlineSmall!.copyWith(color: KColors.primary),
-            content: Text(message),
+                Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.deepPurpleAccent),
+            content: Text(
+              message,
+              style: const TextStyle(color: Colors.white),
+            ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),
                 child: Text(
-                  'تەواو',
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(color: KColors.primary),
+                  'Done',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: Colors.deepPurpleAccent),
                 ),
               ),
             ],
