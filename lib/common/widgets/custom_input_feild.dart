@@ -36,6 +36,8 @@ class CustomInputField extends StatelessWidget {
       obscureText: obscureText,
       controller: controller,
       decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           floatingLabelStyle: const TextStyle().copyWith(
             fontSize: 22,
             color: Colors.black.withOpacity(0.8),

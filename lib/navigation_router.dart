@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:smart_car_park/featuers/app/controllers/park_controller.dart';
 import 'package:smart_car_park/featuers/app/screens/home/home_screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:smart_car_park/featuers/app/screens/payment/payment_screen.dart';
@@ -12,7 +13,9 @@ class NavigationRouterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ParkController());
     final controller = Get.put(NavigationRouterController());
+    final parkController = ParkController.instance;
     final autoSizeGroup = AutoSizeGroup();
 
     final iconList = <IconData>[
@@ -39,19 +42,35 @@ class NavigationRouterScreen extends StatelessWidget {
           color: Colors.white,
         ),
         onPressed: () {
-          showModalBottomSheet(
-              constraints: const BoxConstraints(maxHeight: 220),
-              shape: const RoundedRectangleBorder(),
-              context: context,
-              builder: (context) {
-                return Column(children: [
-                  ListTile(
-                    shape: const RoundedRectangleBorder(),
-                    onTap: () {},
-                    title: const Text("Recomendation System"),
-                  ),
-                ]);
-              });
+          if (parkController.currentLocation != null) {
+            showModalBottomSheet(
+                constraints: const BoxConstraints(maxHeight: 220),
+                shape: const RoundedRectangleBorder(),
+                context: context,
+                builder: (context) {
+                  return Column(children: [
+                    ListTile(
+                      shape: const RoundedRectangleBorder(),
+                      onTap: () {},
+                      title: Text("Nears't Parks For You \n${parkController.currentLocation}"),
+                    ),
+                  ]);
+                });
+          } else {
+            showModalBottomSheet(
+                constraints: const BoxConstraints(maxHeight: 220),
+                shape: const RoundedRectangleBorder(),
+                context: context,
+                builder: (context) {
+                  return Column(children: [
+                    ListTile(
+                      shape: const RoundedRectangleBorder(),
+                      onTap: () {},
+                      title: const Text("Wait Unitl Locatin Loads"),
+                    ),
+                  ]);
+                });
+          }
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
