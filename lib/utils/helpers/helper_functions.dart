@@ -41,7 +41,17 @@ class KHelperFunctions {
 
   static void showSnackBar(String message) {
     ScaffoldMessenger.of(Get.context!).showSnackBar(
-      SnackBar(content: Text(message)),
+      SnackBar(
+        backgroundColor: Colors.deepPurpleAccent.shade100,
+        margin: const EdgeInsets.all(18),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        content: Center(
+            child: Text(
+          message,
+          style: const TextStyle(color: Colors.black, fontSize: 16),
+        )),
+      ),
     );
   }
 

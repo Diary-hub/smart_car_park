@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:smart_car_park/utils/device/device_utility.dart';
 
 class CustomInputField extends StatelessWidget {
   CustomInputField({
@@ -13,6 +14,7 @@ class CustomInputField extends StatelessWidget {
     this.enabled,
     this.focusNode,
     this.validator,
+    this.onSubmit,
     this.expands = false,
   });
 
@@ -25,16 +27,21 @@ class CustomInputField extends StatelessWidget {
   FocusNode? focusNode;
   bool? enabled;
   String? Function(String?)? validator;
+  String? Function(String?)? onSubmit;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onFieldSubmitted: onSubmit,
       expands: expands,
       enabled: enabled,
       focusNode: focusNode,
       validator: validator,
       obscureText: obscureText,
       controller: controller,
+      onTapOutside: (event) {
+        KDeviceUtils.hideKeyboard(context);
+      },
       decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,

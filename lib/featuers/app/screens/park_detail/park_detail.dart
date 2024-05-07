@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:smart_car_park/featuers/app/controllers/slots_controller.dart';
+import 'package:smart_car_park/featuers/app/models/park_model.dart';
 import 'package:smart_car_park/utils/device/device_utility.dart';
 import 'package:smart_car_park/common/widgets/simple_button.dart';
-import 'package:smart_car_park/common/widgets/custom_drawer_primary.dart';
 import 'package:smart_car_park/featuers/app/screens/park_detail/widgets/slots.dart';
 
 class ParkDetailsScreen extends StatelessWidget {
-  const ParkDetailsScreen({super.key});
+  final ParkModel park;
+  const ParkDetailsScreen({super.key, required this.park});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,6 @@ class ParkDetailsScreen extends StatelessWidget {
     final SlotsController slotsController = Get.put(SlotsController());
 
     return Scaffold(
-      drawer: CustomDrawerPrimary(
-        sH: sH,
-      ),
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
@@ -52,7 +49,7 @@ class ParkDetailsScreen extends StatelessWidget {
                     AutoSizeText(
                       minFontSize: 10,
                       maxFontSize: 30,
-                      "Tuy Melik Car Park A",
+                      park.name,
                       style: Theme.of(context).textTheme.headlineLarge,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
@@ -61,7 +58,7 @@ class ParkDetailsScreen extends StatelessWidget {
                     AutoSizeText(
                       minFontSize: 10,
                       maxFontSize: 24,
-                      "500 IQD/Hr",
+                      "${park.price} IQD/Hr",
                       style: Theme.of(context).textTheme.headlineLarge,
                       overflow: TextOverflow.fade,
                       maxLines: 1,
@@ -78,7 +75,7 @@ class ParkDetailsScreen extends StatelessWidget {
             ),
             SizedBox(height: sH * 0.02),
             AutoSizeText(
-              "5/10 slots avalabile",
+              "${park.slots}/10 slots avalabile",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             //Slots
@@ -108,30 +105,22 @@ class ParkDetailsScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
+                            const Text(
+                              "A \n Slots 1-4",
+                              textAlign: TextAlign.center,
+                            ),
                             Obx(
                               () => Slots(
-                                firstFree: slotsController.firstFree.value,
-                                secondFree: slotsController.secondFree.value,
-                                thirdtFree: slotsController.thirdtFree.value,
+                                firstFree: slotsController.firstAFree.value,
+                                secondFree: slotsController.secondAFree.value,
                               ),
                             ),
                             SizedBox(height: sH * 0.02),
-                            const Slots(
-                              firstFree: false,
-                              secondFree: true,
-                              thirdtFree: false,
-                            ),
-                            SizedBox(height: sH * 0.02),
-                            const Slots(
-                              firstFree: true,
-                              secondFree: false,
-                              thirdtFree: true,
-                            ),
-                            SizedBox(height: sH * 0.02),
-                            const Slots(
-                              firstFree: false,
-                              secondFree: false,
-                              thirdtFree: true,
+                            Obx(
+                              () => Slots(
+                                firstFree: slotsController.thirdAFree.value,
+                                secondFree: slotsController.fourthAFree.value,
+                              ),
                             ),
                           ],
                         ),
@@ -148,28 +137,22 @@ class ParkDetailsScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            const Slots(
-                              firstFree: true,
-                              secondFree: false,
-                              thirdtFree: false,
+                            const Text(
+                              "B \n Slots 1-4",
+                              textAlign: TextAlign.center,
+                            ),
+                            Obx(
+                              () => Slots(
+                                firstFree: slotsController.firstBFree.value,
+                                secondFree: slotsController.secondBFree.value,
+                              ),
                             ),
                             SizedBox(height: sH * 0.02),
-                            const Slots(
-                              firstFree: false,
-                              secondFree: false,
-                              thirdtFree: false,
-                            ),
-                            SizedBox(height: sH * 0.02),
-                            const Slots(
-                              firstFree: false,
-                              secondFree: true,
-                              thirdtFree: false,
-                            ),
-                            SizedBox(height: sH * 0.02),
-                            const Slots(
-                              firstFree: false,
-                              secondFree: true,
-                              thirdtFree: true,
+                            Obx(
+                              () => Slots(
+                                firstFree: slotsController.thirdBFree.value,
+                                secondFree: slotsController.fourthBFree.value,
+                              ),
                             ),
                           ],
                         ),
@@ -182,7 +165,7 @@ class ParkDetailsScreen extends StatelessWidget {
             SimpleButton(
               onPressed: () {},
               width: 0.80,
-              text: "Back",
+              text: "Reserve a Slot",
               backgroundColor: Colors.grey[850],
               style: Theme.of(context).textTheme.displaySmall,
             ),

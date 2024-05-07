@@ -7,6 +7,7 @@ class ParkModel {
     required this.price,
     required this.latitude,
     required this.longitude,
+    required this.slots,
     this.id,
   });
 
@@ -15,6 +16,7 @@ class ParkModel {
   final String price;
   final String latitude;
   final String longitude;
+  final String slots;
 
   LatLng get getLatLong => LatLng(double.parse(longitude), double.parse(latitude));
 
@@ -34,6 +36,7 @@ class ParkModel {
         price: '',
         latitude: '',
         longitude: '',
+        slots: '',
       );
 
   // Create a UserModel instance from a Map
@@ -46,6 +49,7 @@ class ParkModel {
         price: data['Price'] ?? '',
         latitude: data['Latitude'] ?? '',
         longitude: data['Longitude'] ?? '',
+        slots: data['Slots'] ?? '',
       );
     } else {
       return ParkModel.empty();
