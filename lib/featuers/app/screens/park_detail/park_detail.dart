@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:get/get.dart';
+import 'package:smart_car_park/featuers/app/controllers/history_controller.dart';
 import 'package:smart_car_park/featuers/app/controllers/slots_controller.dart';
 import 'package:smart_car_park/featuers/app/models/park_model.dart';
 import 'package:smart_car_park/utils/device/device_utility.dart';
@@ -163,7 +164,182 @@ class ParkDetailsScreen extends StatelessWidget {
 
             SizedBox(height: sH * 0.02),
             SimpleButton(
-              onPressed: () {},
+              onPressed: () {
+                final controller = HistoryController.instance;
+
+                showModalBottomSheet(
+                  backgroundColor: Colors.white,
+                  context: context,
+                  builder: (context) {
+                    return Obx(
+                      () => ListView(
+                        children: [
+                          ListTile(
+                            enabled: !slotsController.firstBFree.value,
+                            onTap: () {
+                              controller.saveHistory(
+                                  park.name, "B1", park.price, DateTime.now().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: B1",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            enabled: !slotsController.secondBFree.value,
+                            onTap: () {
+                              controller.saveHistory(
+                                  park.name, "B2", park.price, DateTime.now().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: B2",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            enabled: !slotsController.thirdBFree.value,
+                            onTap: () {
+                              controller.saveHistory(
+                                  park.name, "B3", park.price, DateTime.now().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: B3",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            enabled: !slotsController.fourthBFree.value,
+                            onTap: () {
+                              controller.saveHistory(
+                                  park.name, "B4", park.price, DateTime.now().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: B4",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            enabled: !slotsController.firstAFree.value,
+                            onTap: () {
+                              controller.saveHistory(
+                                  park.name, "A1", park.price, DateTime.now().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: A1",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            enabled: !slotsController.secondAFree.value,
+                            onTap: () {
+                              controller.saveHistory(
+                                  park.name, "A2", park.price, DateTime.now().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: A2",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            enabled: !slotsController.thirdAFree.value,
+                            onTap: () {
+                              controller.saveHistory(park.name, "A3", park.price,
+                                  DateTime.now().toString().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: A3",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            enabled: !slotsController.fourthAFree.value,
+                            onTap: () {
+                              controller.saveHistory(park.name, "A4", park.price,
+                                  DateTime.now().toString().toString());
+                            },
+                            leading: const Icon(
+                              Icons.share_location,
+                              size: 40,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            title: const Text(
+                              "Slot: A4",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
               width: 0.80,
               text: "Reserve a Slot",
               backgroundColor: Colors.grey[850],

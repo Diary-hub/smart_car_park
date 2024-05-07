@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:smart_car_park/featuers/app/controllers/card_controller.dart';
+import 'package:smart_car_park/featuers/app/controllers/history_controller.dart';
 import 'package:smart_car_park/featuers/app/controllers/park_controller.dart';
 import 'package:smart_car_park/featuers/app/screens/home/map/google_map.dart';
 import 'package:smart_car_park/featuers/app/screens/home/widgets/location_list_tile.dart';
@@ -18,6 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(UserController());
     Get.put(CardController());
+    Get.put(HistoryController());
     final controller = ParkController.instance;
     final sW = KDeviceUtils.getScreenWidht(context);
     final sH = KDeviceUtils.getScreenHeight();

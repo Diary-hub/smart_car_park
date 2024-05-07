@@ -31,12 +31,12 @@ class Slots extends StatelessWidget {
               IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.directions_car_filled,
-                      color: firstFree ? Colors.green : Colors.red)),
+                      color: firstFree ? Colors.red : Colors.green)),
           second ??
               IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.directions_car_filled,
-                      color: secondFree ? Colors.green : Colors.red)),
+                      color: secondFree ? Colors.red : Colors.green)),
         ],
       ),
     );

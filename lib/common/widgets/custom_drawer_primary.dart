@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_car_park/featuers/app/screens/history/park_history_screen.dart';
 import 'package:smart_car_park/navigation_router.dart';
 import 'package:smart_car_park/utils/constants/colors.dart';
 import 'package:smart_car_park/common/widgets/simple_button.dart';
@@ -27,7 +29,10 @@ class CustomDrawerPrimary extends StatelessWidget {
             child: const CustomDrawerHeaderPrimary(),
           ),
           ProfileMenuTile(
-            onTap: () {},
+            onTap: () {
+              final controller = NavigationRouterController.instance;
+              controller.setIndex(1);
+            },
             icon: Iconsax.card5,
             title: "Payment Method",
             subTitle: "Check your payments",
@@ -36,7 +41,9 @@ class CustomDrawerPrimary extends StatelessWidget {
             ),
           ),
           ProfileMenuTile(
-            onTap: () {},
+            onTap: () {
+              Get.to(() => const ParkHistory());
+            },
             icon: Icons.history,
             title: "Parking History",
             subTitle: "Check your history",
@@ -63,7 +70,10 @@ class CustomDrawerPrimary extends StatelessWidget {
             ),
           ),
           ProfileMenuTile(
-            onTap: () {},
+            onTap: () {
+              final controller = NavigationRouterController.instance;
+              controller.setIndex(3);
+            },
             icon: Icons.help,
             title: "Support",
             subTitle: "Get help",
